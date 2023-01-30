@@ -9,4 +9,4 @@
 * Базовый JS
   
     
-    [Проектная работа "Место" на gh-pages](https://leisanmingalieva.github.io/russian-travel/ "Место")
+    [Проектная работа "Место" на gh-pages](https://leisanmingalieva.github.io/mesto/ "Место")
