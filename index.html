@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="page">
+    <header class="header">
+        <img src="./image/HeaderLogo.svg" alt="Логотип" class="header__logo">
+    </header>
+    <main>
+        <section class="profile">
+            <div class="profile__info">
+                <img src="./image/avatar.jpg" alt="Жак-Ив Кусто" class="profile__avatar">
+                <div class="profile__description">
+                    <div class="profile__up">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__editButton"></button>
+                    </div>                    
+                    <p class="profile__text">Исследователь океана</p>
+                </div>
+            </div>
+            <div>
+                <button class="profile__addButton"></button>
+            </div>
+                      
+        </section>
+        <section aria-label="Фото" class="elements">
+            <ul class="cards">
+                <li class="card">
+                    <img src="./image/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="card__image">
+                    <div class="card__description">
+                        <p class="card__name">Карачаевск</p>
+                        <button class="card__likeButton"></button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img src="./image/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
+                    <div class="card__description">
+                        <p class="card__name">Гора Эльбрус</p>
+                        <button class="card__likeButton"></button>
+                    </div>                    
+                </li>
+                <li class="card">
+                    <img src="./image/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__description">
+                        <p class="card__name">Домбай</p>
+                        <button class="card__likeButton"></button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img src="./image/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="card__image">
+                    <div class="card__description">
+                        <p class="card__name">Гора Эльбрус</p>
+                        <button class="card__likeButton"></button>
+                    </div>                    
+                </li>
+                <li class="card">
+                    <img src="./image/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="card__image">
+                    <div class="card__description">
+                        <p class="card__name">Домбай</p>
+                        <button class="card__likeButton"></button>
+                    </div>                    
+                </li>
+                <li class="card">                    
+                    <img src="./image/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия" class="card__image">
+                    <div class="card__description">
+                        <p class="card__name">Карачаево-Черкессия</p>
+                        <button class="card__likeButton"></button>                        
+                    </div>                    
+                </li>
+            </ul>
+        </section>
+    </main>    
+    <footer class="footer">
+        <p class="footer">&copy; 2023 Mesto Russia</p>
+    </footer>
+    <section class="popup">
+        <form class="popup__container">
+            <button class="popup__close"></button>
+            <h2 class="popup__heading">Редактировать профиль</h2>
+            <input type="text" class="popup__input popup__input_name" value="Жак-Ив Кусто">
+            <input type="text" class="popup__input popup__input_job" value="Исследователь океана">
+            <button class="popup__saveButton">Сохранить</button>
+        </form>
+    </section>
+
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
