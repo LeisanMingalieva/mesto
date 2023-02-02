@@ -1,11 +1,11 @@
-.form__container {
+.popup__form-container {
     margin: 34px auto 37px;
     max-width: 358px;
     width: 100%;
 }
 
 @media (max-width: 320px) {
-    .form__container {
+    .popup__form-container {
         max-width: 238px;
         margin: 25px auto 25px;
     }
