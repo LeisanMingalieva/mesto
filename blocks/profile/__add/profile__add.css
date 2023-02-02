@@ -1,11 +1,12 @@
 .profile__add {
     background-color: #000000;
     background-image: url(../../../image/add_button_plus.svg);
-    width: 150px;
-    height: 50px;
+    background-size: 22px 22px;
     background-repeat: no-repeat;
     cursor: pointer;
     background-position: center;
+    width: 150px;
+    height: 50px;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
 }
@@ -14,7 +15,7 @@
     .profile__add {
         margin-top: 32px;
         width: 282px;
-        height: 50px;
+        background-size: 16px 16px;
     }
 }
 

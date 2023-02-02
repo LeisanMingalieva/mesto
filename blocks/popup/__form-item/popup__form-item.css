@@ -7,4 +7,10 @@
     background-color: transparent;
     padding: 0;
     margin: 0 auto 30px;
+    font-size: 14px;
+    line-height: 121%;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
