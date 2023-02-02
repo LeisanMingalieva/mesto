@@ -1,6 +1,6 @@
-.profile__addButton {
+.profile__add {
     background-color: #000000;
-    background-image: url(../../../image/addButtonPlus.svg);
+    background-image: url(../../../image/add_button_plus.svg);
     width: 150px;
     height: 50px;
     background-repeat: no-repeat;
@@ -11,13 +11,13 @@
 }
 
 @media (max-width: 639px) {
-    .profile__addButton {
+    .profile__add {
         margin-top: 32px;
         width: 282px;
         height: 50px;
     }
 }
 
-.profile__addButton:hover {
+.profile__add:hover {
     opacity: .6;
 }

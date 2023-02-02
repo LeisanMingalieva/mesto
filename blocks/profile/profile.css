@@ -9,9 +9,8 @@
 
 @media (max-width: 639px) {
     .profile {
-    max-width: 450px;
-    margin: 42px auto 0;
-    display: flex;
-    flex-direction: column;
+        max-width: 450px;
+        margin: 42px auto 0;
+        flex-direction: column;
     }
 }

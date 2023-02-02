@@ -1,6 +1,6 @@
 .profile__up {
     display: block;
-    align-items:center;
+    align-items: center;
 }
 
 @media (max-width: 320px) {
