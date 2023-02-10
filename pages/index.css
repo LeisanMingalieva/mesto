@@ -29,3 +29,4 @@
 @import url(../blocks/popup/__form-save/popup__form-save.css);
 @import url(../blocks/popup/__form-item/_el/popup__form-item_el_name.css);
 @import url(../blocks/popup/__form-item/_el/popup__form-item_el_job.css);
+@import url(../blocks/card/__delete/card__delete.css);
