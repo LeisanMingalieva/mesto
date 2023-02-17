@@ -1,6 +1,5 @@
 //переменные для кнопки закрытия
 const closeButtons = document.querySelectorAll('.popup__close');
-const popup = document.querySelector('.popup');
 //переменные для попапа формы редактирования
 const profileEditButton = document.querySelector('.profile__edit');
 const profilePopup = document.querySelector('.popup_type_profile');
@@ -49,7 +48,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopup(popup);
+  closePopup(profilePopup);
 }
 //шесть карточек 'из коробки'
 const initialCards = [
