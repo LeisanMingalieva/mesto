@@ -1,5 +1,7 @@
 //переменные для кнопки закрытия
 const closeButtons = document.querySelectorAll('.popup__close');
+//const popup = document.querySelectorAll('.popup');
+const popupList = document.querySelectorAll('.popup')
 //переменные для попапа формы редактирования
 const profileEditButton = document.querySelector('.profile__edit');
 const profilePopup = document.querySelector('.popup_type_profile');
@@ -20,7 +22,7 @@ const images = document.querySelector('.popup__image');
 const imagesCaption = document.querySelector('.popup__image-title');
 //переменные для создания карточек
 const cardsContainer = document.querySelector('.cards');
-const cardsTemplate = document.querySelector('#cards-template').content
+const cardsTemplate = document.querySelector('#cards-template').content;
 
 //функция открытия закрытия попапа
 function openPopup(popup) {
@@ -29,10 +31,21 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
-closeButtons.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));//уствнвыливаем обработчик закрытия на крестик
+
+document.addEventListener('keydown', (evt) => {
+  if(evt.key === 'Escape')
+   if(document.querySelector('.popup_opened'))
+     closePopup(document.querySelector('.popup_opened'));
 });
+
+popupList.forEach((popupElement)=> {
+  popupElement.addEventListener('click', function (evt) {
+    if(evt.target === evt.currentTarget || evt.target.classList.contains('popup__close')) {
+      closePopup(popupElement);
+    } 
+  })
+})
+
 //открытие формы редактирования профиля
 const handleEditButtonClick = () => {
   openPopup(profilePopup);
@@ -43,6 +56,7 @@ const handleEditButtonClick = () => {
 const handleAddButtonClick = () => {
   openPopup(cardPopup);
 };
+
 //сoхранение данных в форме редактирования профиля
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -134,7 +148,11 @@ function handleCardSubmit(evt) {
   evt.target.reset(); //очистка формы после закрытия
 }
 
+
+
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 cardForm.addEventListener('submit', handleCardSubmit);
 profileEditButton.addEventListener('click', handleEditButtonClick);
 addButton.addEventListener('click', handleAddButtonClick);
+
+

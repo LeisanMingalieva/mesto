@@ -36,10 +36,28 @@
     <section class="popup popup_type_profile">
         <div class="popup__content">
             <button type="button" class="popup__close"></button>
-            <form name="form" class="popup__form-container">
-                <h2 class="popup__form-heading">Редактировать профиль</h2>
-                <input type="text" class="popup__form-item popup__form-item_el_name">
-                <input type="text" class="popup__form-item popup__form-item_el_job">
+            <form name="form" class="popup__form-container" novalidate>
+                <h2 class="popup__form-heading">Редактировать профиль</h2>                
+                <fieldset class="popup__form-field">
+                    <input 
+                      type="text" 
+                      class="popup__form-item popup__form-item_el_name"
+                      id="input-name"
+                      required
+                      minlength="2"
+                      maxlength="40">
+                    <span class="popup__form-item-error" id="input-name-error"></span>
+                </fieldset>
+                <fieldset class="popup__form-field">
+                    <input
+                      type="text"
+                      class="popup__form-item popup__form-item_el_job"
+                      id = "input-job"
+                      required
+                      minlength="2"
+                      maxlength="200">
+                    <span class="popup__form-item-error" id="input-job-error"></span>
+                </fieldset>
                 <button type="submit" class="popup__form-save">Сохранить</button>
             </form>
         </div>
@@ -47,10 +65,28 @@
     <section class="popup popup_type_card">
         <div class="popup__content">
             <button type="button" class="popup__close"></button>
-            <form name="form" class="popup__form-container">
+            <form name="form" class="popup__form-container" novalidate>
                 <h2 class="popup__form-heading">Новое место</h2>
-                <input type="text" placeholder="Название" class="popup__form-item popup__form-item_el_place">
-                <input type="text" placeholder="Ссылка на картинку" class="popup__form-item popup__form-item_el_link">
+                <fieldset class="popup__form-field">
+                    <input
+                      required
+                      id="input-place"
+                      type="text"
+                      placeholder="Название"
+                      minlength="2"
+                      maxlength="30"
+                      class="popup__form-item popup__form-item_el_place">
+                    <span class="popup__form-item-error" id="input-place-error"></span>
+                </fieldset>
+                <fieldset class="popup__form-field">
+                    <input                
+                      required
+                     id="input-link"
+                      type="url"
+                      placeholder="Ссылка на картинку"
+                      class="popup__form-item popup__form-item_el_link">
+                    <span class="popup__form-item-error" id="input-link-error"></span>
+                </fieldset>
                 <button type="submit" class="popup__form-save">Создать</button>
             </form>
         </div>
@@ -75,5 +111,6 @@
         </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 </html>
