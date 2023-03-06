@@ -24,39 +24,42 @@ const imagesCaption = document.querySelector('.popup__image-title');
 const cardsContainer = document.querySelector('.cards');
 const cardsTemplate = document.querySelector('#cards-template').content;
 
-//функция открытия закрытия попапа
+//функция открытия попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 }
+//функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 }
-
-document.addEventListener('keydown', (evt) => {
+//закрытие попапа нажатием на кнопку Escape
+function closePopupEsc(evt) {
   if(evt.key === 'Escape')
    if(document.querySelector('.popup_opened'))
      closePopup(document.querySelector('.popup_opened'));
-});
-
+}
+//закрытие попапа нажатием на оверлей и крестик
 popupList.forEach((popupElement)=> {
-  popupElement.addEventListener('click', function (evt) {
+  popupElement.addEventListener('mousedown', function (evt) {
     if(evt.target === evt.currentTarget || evt.target.classList.contains('popup__close')) {
       closePopup(popupElement);
     } 
   })
 })
-
 //открытие формы редактирования профиля
 const handleEditButtonClick = () => {
   openPopup(profilePopup);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  enableValidation(formValidationConfig);
 };
 //открытие формы добавления карточки
 const handleAddButtonClick = () => {
   openPopup(cardPopup);
+  enableValidation(formValidationConfig);
 };
-
 //сoхранение данных в форме редактирования профиля
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -64,34 +67,6 @@ function handleProfileFormSubmit(evt) {
   profileJob.textContent = jobInput.value;
   closePopup(profilePopup);
 }
-//шесть карточек 'из коробки'
-const initialCards = [
-  {
-    name: 'Будапешт',
-    link: 'https://images.unsplash.com/photo-1674669816655-304cb1588eed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=945&q=80',
-  },
-  {
-    name: 'Венеция',
-    link: 'https://images.unsplash.com/photo-1671364546528-dea96bc65f1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1067&q=80',
-  },
-  {
-    name: 'Гренландия',
-    link: 'https://images.unsplash.com/photo-1654949770651-8580733aacbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-  },
-  {
-    name: 'Куала-Лумпур',
-    link: 'https://images.unsplash.com/photo-1675416833313-44fc7879987a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-  },
-  {
-    name: 'Исландия',
-    link: 'https://images.unsplash.com/photo-1675112519495-6d257843203d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-  },
-];
-
 //функция создания карточек
 function createCard(item) {
   const cardElement = cardsTemplate.querySelector('.card').cloneNode(true);
@@ -100,28 +75,28 @@ function createCard(item) {
   cardName.textContent = item.name;
   cardImage.src = item.link;
   cardImage.alt = item.name;
-
   //кнопка лайк
-  cardElement
-    .querySelector('.card__like')
-    .addEventListener('click', function (evt) {
-      evt.target.classList.toggle('card__like_active');
-    });
-
-  //удаление карточки
-  cardElement
-    .querySelector('.card__delete')
-    .addEventListener('click', function () {
-      cardElement.remove();
-    });
-
-  //открытие попапа с картинкой
-  cardImage.addEventListener('click', function () {
-    images.src = item.link;
-    images.alt = item.name;
-    imagesCaption.textContent = item.name;
-    openPopup(imagePopup);
-  });
+function handleLikeCardClick (evt) {
+  evt.target.classList.toggle('card__like_active');
+};
+cardElement
+  .querySelector('.card__like')
+  .addEventListener('click', handleLikeCardClick);
+//удаление карточки
+function handleDeleteCardClick () {
+  cardElement.remove();
+}
+cardElement
+  .querySelector('.card__delete')
+  .addEventListener('click', handleDeleteCardClick);
+//открытие попапа с картинкой
+function handleOpenCardImage() {
+  images.src = item.link;
+  images.alt = item.name;
+  imagesCaption.textContent = item.name;
+  openPopup(imagePopup);
+};
+cardImage.addEventListener('click', handleOpenCardImage);
   return cardElement;
 }
 //функция добавления карточек
@@ -133,7 +108,6 @@ function addCard(el) {
 initialCards.forEach((element) => {
   addCard(element);
 });
-
 //добавление новой карточки при нажатии кнопку добавления
 function handleCardSubmit(evt) {
   evt.preventDefault();
@@ -142,13 +116,9 @@ function handleCardSubmit(evt) {
     link: linkInput.value,
   };
   addCard(item);
-
   closePopup(cardPopup);
-
   evt.target.reset(); //очистка формы после закрытия
 }
-
-
 
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 cardForm.addEventListener('submit', handleCardSubmit);

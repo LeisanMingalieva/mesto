@@ -2,6 +2,7 @@
     opacity: .2;
     border: 1px solid #000;
     background-color: transparent;
-    color: rgba(0,0,0,.2);
+    color: #000;
     margin-top: 11px;
+    cursor: default;
 }

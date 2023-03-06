@@ -40,5 +40,5 @@
 @import url(../blocks/popup/__form-item/_el/popup__form-item_el_place.css);
 @import url(../blocks/popup/__form-item/_el/popup__form-item_el_link.css);
 @import url(../blocks/popup/__form-item/_type/popup__form-item_type_error.css);
-@import url(../blocks/popup/__form-item/popup__form-item-error.css);
+@import url(../blocks/popup/__form-item/__form-item-error/popup__form-item-error.css);
 @import url(../blocks/card/__delete/card__delete.css);

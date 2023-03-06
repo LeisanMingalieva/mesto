@@ -36,7 +36,7 @@
     <section class="popup popup_type_profile">
         <div class="popup__content">
             <button type="button" class="popup__close"></button>
-            <form name="form" class="popup__form-container" novalidate>
+            <form name="profileForm" class="popup__form-container" novalidate>
                 <h2 class="popup__form-heading">Редактировать профиль</h2>                
                 <fieldset class="popup__form-field">
                     <input 
@@ -65,7 +65,7 @@
     <section class="popup popup_type_card">
         <div class="popup__content">
             <button type="button" class="popup__close"></button>
-            <form name="form" class="popup__form-container" novalidate>
+            <form name="cardsForm" class="popup__form-container" novalidate>
                 <h2 class="popup__form-heading">Новое место</h2>
                 <fieldset class="popup__form-field">
                     <input
@@ -77,7 +77,7 @@
                       maxlength="30"
                       class="popup__form-item popup__form-item_el_place">
                     <span class="popup__form-item-error" id="input-place-error"></span>
-                </fieldset>
+                </fieldset> 
                 <fieldset class="popup__form-field">
                     <input                
                       required
@@ -110,7 +110,8 @@
         </li>
         </template>
 
+    <script src="./scripts/initial-cards.js"></script>
+    <script src="./scripts/validate.js"></script> 
     <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
 </body>
 </html>

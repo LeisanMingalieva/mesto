@@ -1,4 +1,3 @@
-
 //включение валидации вызовом enableValidation
 const formValidationConfig = {
   formSelector: '.popup__form-container',
@@ -11,7 +10,7 @@ const formValidationConfig = {
 function disableSubmit (evt) {
   evt.preventDefault();
 }
-
+//функция валидаци форм
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((form) => {
@@ -23,41 +22,42 @@ function enableValidation(config) {
     toggleButton(form,config);
   });
 }
-
+//показывает текст ошибки
+function showInputError(input, config, errorElement) {
+  input.classList.add(config.errorClass);
+  errorElement.textContent = input.validationMessage;
+}
+//убирает текст ошибки
+function hideInputError(input, config, errorElement) {
+  input.classList.remove(config.errorClass);
+  errorElement.textContent = '';
+}
+//валидация при заполнении инпутов
 function handleFormInput(event, config) {
   const input = event.target;
   const inputId = input.id;
   const errorElement = document.querySelector(`#${inputId}-error`);
-
-
   if(input.validity.valid) {
-    input.classList.remove(config.errorClass)
-    errorElement.textContent = '';
+    hideInputError(input, config, errorElement);
   } else {
-    input.classList.add(config.errorClass)
-    errorElement.textContent = input.validationMessage;
+    showInputError(input, config, errorElement);
   }
 }
-
+//состояние кнопки сабмита
 function toggleButton(form,config) {
   const buttonSubmit = form.querySelector(config.buttonSelector);
-  const isFormValid = form.checkValidity();
-
-  buttonSubmit.disabled = !isFormValid;
-  buttonSubmit.classList.toggle('popup__form-save_disabled',!isFormValid)
-
+  const isFormValid = form.checkValidity();//проверка формы на валидность
+  buttonSubmit.disabled = !isFormValid;//блокирует кнопку при невалидных данных
+  buttonSubmit.classList.toggle(config.buttonDisabledClass,!isFormValid)
 }
 
 function addInputListener(form, config) {
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
-
-  inputList.forEach(function (item) {
-    item.addEventListener('input', (event) => {
+  inputList.forEach(function (inputElement) {
+    inputElement.addEventListener('input', (event) => {
       handleFormInput(event,config)
     })
 });
 }
-
-
 
 enableValidation(formValidationConfig);
