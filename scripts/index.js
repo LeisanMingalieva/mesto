@@ -52,10 +52,12 @@ const handleEditButtonClick = () => {
   openPopup(profilePopup);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  toggleButton(profileForm, formValidationConfig);
 };
 //открытие формы добавления карточки
 const handleAddButtonClick = () => {
   openPopup(cardPopup);
+  toggleButton(cardForm, formValidationConfig);
 };
 //сoхранение данных в форме редактирования профиля
 function handleProfileFormSubmit(evt) {

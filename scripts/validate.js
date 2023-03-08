@@ -5,6 +5,7 @@ const formValidationConfig = {
   errorClass: 'popup__form-item_type_error',
   buttonSelector: '.popup__form-save',
   buttonDisabledClass: 'popup__form-save_disabled',
+  errorSelector: '.popup__form-item-error',
 };
 
 function disableSubmit (evt) {
