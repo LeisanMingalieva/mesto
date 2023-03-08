@@ -32,6 +32,7 @@ function openPopup(popup) {
 //функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
 }
 //закрытие попапа нажатием на кнопку Escape
 function closePopupEsc(evt) {
