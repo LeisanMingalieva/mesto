@@ -32,7 +32,6 @@ function openPopup(popup) {
 //функция закрытия попапа
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keydown', closePopupEsc);
 }
 //закрытие попапа нажатием на кнопку Escape
 function closePopupEsc(evt) {
@@ -53,12 +52,10 @@ const handleEditButtonClick = () => {
   openPopup(profilePopup);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  enableValidation(formValidationConfig);
 };
 //открытие формы добавления карточки
 const handleAddButtonClick = () => {
   openPopup(cardPopup);
-  enableValidation(formValidationConfig);
 };
 //сoхранение данных в форме редактирования профиля
 function handleProfileFormSubmit(evt) {

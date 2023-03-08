@@ -19,7 +19,7 @@ function enableValidation(config) {
       toggleButton(form,config);
   });
     addInputListener(form, config);
-    toggleButton(form,config);
+    toggleButton(form,config)
   });
 }
 //показывает текст ошибки
@@ -48,7 +48,7 @@ function toggleButton(form,config) {
   const buttonSubmit = form.querySelector(config.buttonSelector);
   const isFormValid = form.checkValidity();//проверка формы на валидность
   buttonSubmit.disabled = !isFormValid;//блокирует кнопку при невалидных данных
-  buttonSubmit.classList.toggle(config.buttonDisabledClass,!isFormValid)
+  buttonSubmit.classList.toggle(config.buttonDisabledClass,!isFormValid);
 }
 
 function addInputListener(form, config) {
