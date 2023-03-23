@@ -6,10 +6,10 @@ import FormValidator from "./FormValidator.js";
 //валидация форм
 const forms = document.querySelectorAll('.popup__form-container');
 forms.forEach((formElement) => {
-const validator = new FormValidator(formValidationConfig, formElement);
-validator.enableValidation();
+const formValidator = new FormValidator(formValidationConfig, formElement);
+formValidator.enableValidation();
 })
-  //функция создания карточки через класс
+//функция создания карточки через класс
 const createCard = (...args) => {
   return new Card(...args);
 }
