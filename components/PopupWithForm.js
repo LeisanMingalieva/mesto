@@ -4,8 +4,13 @@ import Popup from "./Popup.js";
     constructor(popupSelector, handleSubmitForm) {
         super(popupSelector);
         this._handleSubmitForm = handleSubmitForm;
-        this._form = document.querySelector('.popup__form-container');
+        this._form = this._popupSelector.querySelector('.popup__form-container');
         this._inputList = this._form.querySelectorAll('.popup__form-item');
+    }
+
+    close() {
+        this._form.reset();
+        super.close()
     }
 
     _getInputValues() {
@@ -20,14 +25,8 @@ import Popup from "./Popup.js";
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this._handleSubmitForm(this._getInputValues());
             this.close();
         })
         
-    }
-
-    close() {
-        super.close()
-        this._form.reset();
     }
 }
