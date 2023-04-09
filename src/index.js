@@ -1,11 +1,12 @@
-import Card from "../components/Card.js";
-import { initialCards, formValidationConfig } from "../utils/constans.js";
-import { profileEditButton, nameInput, jobInput, profileName, profileJob, profileForm, addButton, cardForm, placeInput, linkInput } from '../utils/constans.js'
-import FormValidator from "../components/FormValidator.js";
-import Section from "../components/Section.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/UserInfo.js";
+import './pages/index.css';
+import Card from "./components/Card.js";
+import { initialCards, formValidationConfig } from "./utils/constans.js";
+import { profileEditButton, nameInput, jobInput, profileName, profileJob, profileForm, addButton, cardForm, placeInput, linkInput } from './utils/constans.js'
+import FormValidator from "./components/FormValidator.js";
+import Section from "./components/Section.js";
+import PopupWithImage from "./components/PopupWithImage.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import UserInfo from "./components/UserInfo.js";
 
 //сoхранение данных в форме редактирования профиля
 const handleProfileFormSubmit = () => {
