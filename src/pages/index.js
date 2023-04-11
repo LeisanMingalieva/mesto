@@ -54,8 +54,8 @@ const cardList = new Section ( {
 cardList.renderItems();
 
 //функция увеличения изображения по клику на него
-const handleCardClick = (name,link) => {
-  imagePopup.open(name, link);
+const handleCardClick = (title,link) => {
+  imagePopup.open(title, link);
 }
 
 //валидация форм
