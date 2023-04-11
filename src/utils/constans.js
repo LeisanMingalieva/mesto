@@ -26,7 +26,6 @@ export const initialCards = [
     }
 ];
 //переменные для кнопки закрытия
-const closeButtons = document.querySelectorAll('.popup__close');
 export const popupList = document.querySelectorAll('.popup')
 //переменные для попапа формы редактирования
 export const profileEditButton = document.querySelector('.profile__edit');
@@ -48,7 +47,6 @@ export const images = document.querySelector('.popup__image');
 export const imagesCaption = document.querySelector('.popup__image-title');
 //переменные для создания карточек
 export const cardsContainer = document.querySelector('.cards');
-const cardsTemplate = document.querySelector('#cards-template').content;
 
 export const formValidationConfig = {
   formSelector: '.popup__form-container',

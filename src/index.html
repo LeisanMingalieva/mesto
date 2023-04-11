@@ -45,7 +45,8 @@
                       id="input-name"
                       required
                       minlength="2"
-                      maxlength="40">
+                      maxlength="40"
+                      name="name">
                     <span class="popup__form-item-error" id="input-name-error"></span>
                 </fieldset>
                 <fieldset class="popup__form-field">
@@ -56,7 +57,8 @@
                       id = "input-job"
                       required
                       minlength="2"
-                      maxlength="200">
+                      maxlength="200"
+                      name="job">
                     <span class="popup__form-item-error" id="input-job-error"></span>
                 </fieldset>
                 <button type="submit" class="popup__form-save">Сохранить</button>
@@ -70,6 +72,7 @@
                 <h2 class="popup__form-heading">Новое место</h2>
                 <fieldset class="popup__form-field">
                     <input
+                      name="name"
                       required
                       id="input-place"
                       type="text"
@@ -80,7 +83,8 @@
                     <span class="popup__form-item-error" id="input-place-error"></span>
                 </fieldset> 
                 <fieldset class="popup__form-field">
-                    <input                
+                    <input  
+                      name="link"              
                       required
                       id="input-link"
                       type="url"

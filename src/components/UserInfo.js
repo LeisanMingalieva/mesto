@@ -3,14 +3,15 @@ export default class UserInfo {
         this._userName = document.querySelector(userNameSelector);
         this._userJob = document.querySelector(userJobSelector);
     }
-    getUserInfo(name, job) {
-            this._userName.value = name,
-            this._userJob.value = job
+    getUserInfo() {
+            return {
+                name: this._userName.textContent,
+                job: this._userJob.textContent,
+            }
     }
 
     setUserInfo(name, job) {
         this._userName.textContent = name,
         this._userJob.textContent = job
-    }
-    
-    }
+    }    
+}
