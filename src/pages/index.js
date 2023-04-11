@@ -12,11 +12,11 @@ import UserInfo from "../components/UserInfo.js";
 const imagePopup = new PopupWithImage('.popup_type_image');
 const userInfo = new UserInfo( {userNameSelector:'.profile__name', userJobSelector:'.profile__text'})
 const profilePopup = new PopupWithForm('.popup_type_profile', {handleSubmitForm: (userData) => {
-  userInfo.setUserInfo(userData.name,userData.job)  
+  userInfo.setUserInfo(userData.name,userData.job);
   validators[profileForm.getAttribute('name')].toggleButton();
 }});
 const cardPopup = new PopupWithForm('.popup_type_card', {handleSubmitForm: (cardData) => {
-renderCard(cardData)
+renderCard(cardData);
 }});
 
 //открытие формы редактирования профиля
@@ -40,6 +40,11 @@ const createCard = (data, templateSelector, func) => {
     return newCard.generatedCard();
 }
 
+//функция увеличения изображения по клику на него
+const handleCardClick = (title,link) => {
+  imagePopup.open(title, link);
+}
+
 //отрисовка карточек
 const renderCard = (item) => {
   const card = createCard(item, '#cards-template', handleCardClick);
@@ -52,11 +57,6 @@ const cardList = new Section ( {
 }, 
   '.cards');
 cardList.renderItems();
-
-//функция увеличения изображения по клику на него
-const handleCardClick = (title,link) => {
-  imagePopup.open(title, link);
-}
 
 //валидация форм
 const forms = document.querySelectorAll('.popup__form-container');
