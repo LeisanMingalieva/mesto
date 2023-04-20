@@ -10,6 +10,7 @@
     display: inline-block;
     padding: 0;
     margin-right: 5px;
+    margin-bottom: 3px;
 }
 
 .card__like:hover {
