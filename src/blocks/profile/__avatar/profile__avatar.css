@@ -1,11 +1,8 @@
 .profile__avatar {
-    background-image: url(../../../image/avatar.jpg);
-    background-size: cover;
+    object-fit: cover;
     border-radius: 50%;
-    cursor: pointer;
     height: 120px;
     width: 120px;
-    background-repeat: no-repeat;
 }
 .profile__avatar:hover {
     cursor: pointer;
