@@ -6,7 +6,8 @@ import Popup from "./Popup.js";
         this._handleSubmitForm = handleSubmitForm;
         this._form = this._popup.querySelector('.popup__form-container');
         this._inputList = this._form.querySelectorAll('.popup__form-item');
-        this._button = this._form.querySelector('.popup__form-save')
+        this._button = this._form.querySelector('.popup__form-save');
+        this._submitBtnText = this._button.textContent
     }
 
     close() {
@@ -33,17 +34,16 @@ import Popup from "./Popup.js";
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._handleSubmitForm(this._getInputValues())
-            this.close();
         })
         
     }
 
-    renderLoading(isLoading, buttonText) {
+    renderLoading(isLoading, loadingText='Сохранение...') {
         if(isLoading) {
-            this._button.textContent = buttonText;
+            this._button.textContent = loadingText;
             this._button.disabled = true
         } else {
-            this._button.textContent = buttonText;
+            this._button.textContent = this._submitBtnText;
             this._button.disabled = false
         }
     }

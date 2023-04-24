@@ -26,7 +26,7 @@ const imagePopup = new PopupWithImage('.popup_type_image');
 const user = new UserInfo( {userNameSelector:'.profile__name', userJobSelector:'.profile__text', avatarSelector: '.profile__avatar'} )
 //экземпляр формы редактирования профиля
 const profilePopup = new PopupWithForm('.popup_type_profile', {handleSubmitForm: (inputData) => {
-  profilePopup.renderLoading(true, "Сохранение...");
+  profilePopup.renderLoading(true);
   api.setUserData(inputData)
     .then((res) => {
       user.setUserInfo(res);
@@ -36,14 +36,13 @@ const profilePopup = new PopupWithForm('.popup_type_profile', {handleSubmitForm:
       console.log(err)
     })
     .finally(() => {
-      profilePopup.renderLoading(false, "Сохранить")
+      profilePopup.renderLoading(false)
     })
-    validators[profileForm.getAttribute('name')].toggleButton();
   }
 });
 //экземпляр формы добавления карточки
 const cardPopup = new PopupWithForm('.popup_type_card', {handleSubmitForm: (cardInput) => {
-  cardPopup.renderLoading(true, "Сохранение...");
+  cardPopup.renderLoading(true,);
   api.postNewCard(cardInput)
   .then((res) => {
     cardList.addItem(createCard(res));
@@ -53,13 +52,13 @@ const cardPopup = new PopupWithForm('.popup_type_card', {handleSubmitForm: (card
     console.log(err)
   })
   .finally(() => {
-    cardPopup.renderLoading(false, "Сохранить")
+    cardPopup.renderLoading(false)
   })
   }
 });
 //экземпляр формы смены аватара
 const avatarPopup = new PopupWithForm('.popup_type_avatar', {handleSubmitForm: (avatarInput) => {
-  avatarPopup.renderLoading(true, "Сохранение...");
+  avatarPopup.renderLoading(true);
   api.setUserAvatar(avatarInput)
     .then((res) => {
       user.setUserInfo(res);
@@ -69,9 +68,8 @@ const avatarPopup = new PopupWithForm('.popup_type_avatar', {handleSubmitForm: (
       console.log(err)
     })
     .finally(() => {
-      avatarPopup.renderLoading(false, "Сохранить");
+      avatarPopup.renderLoading(false);
     })
-  validators[avatarForm.getAttribute('name')].toggleButton();
   }
 })
 //экземпляр формы согласия на удаление карточки
@@ -90,6 +88,8 @@ Promise.all([api.getUserData(), api.getInitialCards()])
 .then(([userData, cards]) => {
   user.setUserInfo(userData)
   cardList.renderItems(cards)
+}).catch((err) => {
+  console.log(err)
 })
 
 //открытие попапа удаления карточки
@@ -102,8 +102,6 @@ const handleEditButtonClick = () => {
   profilePopup.open();
   const userInfo = user.getUserInfo()
   profilePopup.setInputValues(userInfo)
-  nameInput.value = userInfo.name,
-  jobInput.value = userInfo.about
   validators[profileForm.getAttribute('name')].toggleButton();
 };
 
