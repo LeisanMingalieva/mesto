@@ -41,10 +41,8 @@ import Popup from "./Popup.js";
     renderLoading(isLoading, loadingText='Сохранение...') {
         if(isLoading) {
             this._button.textContent = loadingText;
-            this._button.disabled = true
         } else {
             this._button.textContent = this._submitBtnText;
-            this._button.disabled = false
         }
     }
 }

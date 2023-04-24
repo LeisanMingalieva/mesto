@@ -3,8 +3,6 @@ import Card from "../components/Card.js";
 import {
   formValidationConfig,
   profileEditButton,
-  nameInput,
-  jobInput,
   profileForm,
   addButton,
   cardForm,
@@ -96,7 +94,6 @@ Promise.all([api.getUserData(), api.getInitialCards()])
 const handleOpenDeletePopup = (cardId, card) => {
   deleteConfirmPopup.open(cardId, card);
 }
-
 //открытие формы редактирования профиля
 const handleEditButtonClick = () => {
   profilePopup.open();

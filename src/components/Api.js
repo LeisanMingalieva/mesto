@@ -5,22 +5,21 @@ export default class Api {
   }
 
   getInitialCards() {
-    return fetch(`${this.url}/cards`, {
+    return this._request("/cards", {
         method: 'GET',
         headers:this.headers,
     })
-    .then(this._checkResponse);
   }
 
   getUserData() {
-    return fetch(`${this.url}/users/me`, {
+    return this._request("/users/me", {
       method: 'GET',
         headers: this.headers
-    }) .then(this._checkResponse);
+    })
  }
 
   setUserData(userInfo) {
-    return fetch(`${this.url}/users/me`, {
+    return this._request("/users/me", {
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify({
@@ -28,22 +27,20 @@ export default class Api {
             about: userInfo.about
         })
      })
-    .then(this._checkResponse)
   }
   
   setUserAvatar(userInfo) {
-    return fetch(`${this.url}/users/me/avatar`, {
+    return this._request("/users/me/avatar", {
         method: 'PATCH',
         headers: this.headers,
         body: JSON.stringify({
             avatar: userInfo.avatar
         })
      })
-    .then(this._checkResponse)
   }
 
   postNewCard(card) {
-    return fetch(`${this.url}/cards`, {
+    return this._request("/cards", {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify({
@@ -51,31 +48,27 @@ export default class Api {
         link: card.link
       })
     })
-    .then(this._checkResponse)
   }
 
   deleteCard(cardId) {
-    return fetch(`${this.url}/cards/${cardId}`, {
+    return this._request(`/cards/${cardId}`, {
       method: 'DELETE',
       headers: this.headers
     })
-    .then(this._checkResponse)
   }
 
   likeCard(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes`, {
+    return this._request(`/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this.headers
     })
-    .then(this._checkResponse)
   }
 
   dislikeCard(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes`, {
+    return this._request(`/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this.headers
     })
-    .then(this._checkResponse)
   }
 
   _checkResponse = res => {
@@ -84,4 +77,8 @@ export default class Api {
     }
     return Promise.reject(`Ой, ошибка ${res.status}`)
   }  
+
+  _request(urlEndpoint, options) {
+    return fetch(`${this.url}${urlEndpoint}`, options).then(this._checkResponse)
+  }
 }
